@@ -216,6 +216,29 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'<img src="legend/Dazzleblocks_4.png" /> Dazzle blocks': layer_Dazzleblocks_4,'<img src="legend/Blythboundary_3.png" /> Blyth boundary': layer_Blythboundary_3,"OpenStreetMap": layer_OpenStreetMap_2,"Google Maps": layer_GoogleMaps_1,"ESRI Imagery": layer_ESRIImagery_0,},{collapsed:false}).addTo(map);
         setBounds();
+         var i = 0;
+        layer_BlocksWebmap_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((exp_label_BlocksWebmap_1_eval_expression(context) !== null?String('<div style="color: #323232; font-size: 8pt; font-family: \'Liberation Sans\', sans-serif;">' + exp_label_BlocksWebmap_1_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BlocksWebmap_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_BlocksWebmap_1,layer_Rescue_5,layer_Oldwell_6,layer_Steepslopes_7,layer_House_9,layer_Entrance_10]);
+        map.on("zoomend", function(){
+            resetLabels([layer_BlocksWebmap_1,layer_Rescue_5,layer_Oldwell_6,layer_Steepslopes_7,layer_House_9,layer_Entrance_10]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_BlocksWebmap_1,layer_Rescue_5,layer_Oldwell_6,layer_Steepslopes_7,layer_House_9,layer_Entrance_10]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_BlocksWebmap_1,layer_Rescue_5,layer_Oldwell_6,layer_Steepslopes_7,layer_House_9,layer_Entrance_10]);
+        });    
         </script>
     </body>
 </html>
