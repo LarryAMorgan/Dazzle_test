@@ -216,7 +216,7 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'<img src="legend/Dazzleblocks_4.png" /> Dazzle blocks': layer_Dazzleblocks_4,'<img src="legend/Blythboundary_3.png" /> Blyth boundary': layer_Blythboundary_3,"OpenStreetMap": layer_OpenStreetMap_2,"Google Maps": layer_GoogleMaps_1,"ESRI Imagery": layer_ESRIImagery_0,},{collapsed:false}).addTo(map);
         setBounds();
-         var i = 0;
+        var i = 0;
         layer_BlocksWebmap_1.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
